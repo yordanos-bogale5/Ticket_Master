@@ -32,13 +32,13 @@ class _TicketMasterHomeState extends State<TicketMasterHome> with SingleTickerPr
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0), // Set your preferred height
+        preferredSize: const Size.fromHeight(60.0),
         child: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
           title: Text(
             'TicketMaster',
-            style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.black),
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.black),
           ),
           actions: [
             IconButton(
@@ -62,13 +62,13 @@ class _TicketMasterHomeState extends State<TicketMasterHome> with SingleTickerPr
               );
             },
             child: SizedBox(
-              height: 200,
+              height: 50,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: 12,
                 itemBuilder: (context, index) {
                   return Container(
-                    width: 200,
+                    width: 50,
                     margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
