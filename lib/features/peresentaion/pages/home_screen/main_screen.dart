@@ -46,10 +46,10 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final List<Color> topCatColors = [
-    const Color.fromRGBO(207, 32, 184, 1),
-    const Color.fromRGBO(207, 32, 184, 1),
-    const Color.fromRGBO(207, 32, 184, 1),
-    const Color.fromRGBO(207, 32, 184, 1),
+     Colors.tealAccent,
+   Colors.tealAccent,
+   Colors.tealAccent,
+   Colors.tealAccent,
   ];
 
   final List<String> imageUrls = [
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
     "yegna bus",
     "concert",
     "swap",
-    "tcket"
+    "ticket"
   ];
 
   int _selectedIndex = 0;
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
      SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.purple, // Set the color you want for the status bar
+        statusBarColor: Colors.tealAccent, // Set the color you want for the status bar
       ),
     );
     return Scaffold(
@@ -119,10 +119,10 @@ class _HomePageState extends State<HomePage> {
               
             ),
             decoration: const BoxDecoration(
-              color: Colors.purple,
+              color: Colors.tealAccent,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
+                bottomLeft: Radius.circular(0),
+                bottomRight: Radius.circular(0),
               ),
             ),
             child: Column(
@@ -162,10 +162,10 @@ class _HomePageState extends State<HomePage> {
                       return Container(
                         margin: const EdgeInsets.only(
                             right: 10,
-                            bottom: 10), // Adjust the bottom margin as needed
+                            bottom: 10),
                         padding: const EdgeInsets.all(8),
                         decoration: const BoxDecoration(
-                          color: Colors.purple,
+                          color: Colors.grey,
                         ),
                         child: Text(
                           horizontalTexts[index],
@@ -257,7 +257,7 @@ class _HomePageState extends State<HomePage> {
 Row(
   children: [
     Padding(
-      padding: const EdgeInsets.only(left: 15.0), // Add left padding as needed
+      padding: const EdgeInsets.only(left: 10.0,bottom:200), // Add left padding as needed
       child: Card(
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -267,43 +267,47 @@ Row(
           height: 270,
           width: 180,
           child: PageView(
-            controller: _pageController,
-            children: imageUrls.map((url) {
-              return Image.network(
-                url,
-                fit: BoxFit.cover,
-              );
-            }).toList(),
-          ),
+  controller: _pageController,
+  children: imageUrls.map((url) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(7.0),
+      child: Image.network(
+        url,
+        fit: BoxFit.cover,
+      ),
+    );
+  }).toList(),
+)
+
         ),
       ),
     ),
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 3), // Adjust the spacing between the cards
 
     Padding(
-      padding: const EdgeInsets.only(bottom: 75.0),
+      padding: const EdgeInsets.only(bottom: 275.0,),
       child: SizedBox(
-        width: 160,
+        width: 170,
         height: 200,
         child: Card(
           elevation: 4,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(15),
           ),
           child: SizedBox(
-            height: 210,
+            height: 200,
             width: 170,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(0.0),
               child: Column(
                 children: [
                   Image.network(
                     'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/aa/f9/05/aaf90564-680f-3246-da81-23cd49204471/cover.jpg/1200x630cw.png',
-                    height: 100,
+                    height: 200,
                     width: 170,
                     fit: BoxFit.cover,
                   ),
-                  const SizedBox(height: 8),
+                  
                   const Text(
                     'Rophinan Concert',
                     style: TextStyle(
@@ -311,7 +315,7 @@ Row(
                       fontSize: 16,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  
                   const Text(
                     'Vip 1000',
                     style: TextStyle(
@@ -328,11 +332,10 @@ Row(
   ],
 ),
 
-// Add another set of cards below the second card
 Row(
   children: [
-    Padding(
-      padding: const EdgeInsets.only(left: 15.0), // Add left padding as needed
+     Padding(
+      padding: const EdgeInsets.only(left: 10.0,bottom:200), // Add left padding as needed
       child: Card(
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -342,21 +345,25 @@ Row(
           height: 270,
           width: 180,
           child: PageView(
-            controller: _pageController,
-            children: imageUrls.map((url) {
-              return Image.network(
-                url,
-                fit: BoxFit.cover,
-              );
-            }).toList(),
-          ),
+  controller: _pageController,
+  children: imageUrls.map((url) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(7.0),
+      child: Image.network(
+        url,
+        fit: BoxFit.cover,
+      ),
+    );
+  }).toList(),
+)
+
         ),
       ),
     ),
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 3),
 
     Padding(
-      padding: const EdgeInsets.only(bottom: 55.0),
+      padding: const EdgeInsets.only(bottom: 255.0),
       child: SizedBox(
         width: 160,
         height: 200,
@@ -367,18 +374,18 @@ Row(
           ),
           child: SizedBox(
             height: 210,
-            width: 470,
+            width: 200,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Image.network(
                     'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/aa/f9/05/aaf90564-680f-3246-da81-23cd49204471/cover.jpg/1200x630cw.png',
-                    height: 100,
+                    height: 200,
                     width: 170,
                     fit: BoxFit.cover,
                   ),
-                  const SizedBox(height: 8),
+                  
                   const Text(
                     'Rophinan Concert',
                     style: TextStyle(
@@ -386,7 +393,7 @@ Row(
                       fontSize: 16,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  
                   const Text(
                     'Vip 1000',
                     style: TextStyle(
@@ -401,16 +408,15 @@ Row(
       ),
     ),
 
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 6),
 
    
   ],
 ),
-// Add another set of cards below the second card
 Row(
   children: [
     Padding(
-      padding: const EdgeInsets.only(left: 15.0), // Add left padding as needed
+      padding: const EdgeInsets.only(left: 10.0,bottom:200), // Add left padding as needed
       child: Card(
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -420,31 +426,35 @@ Row(
           height: 270,
           width: 180,
           child: PageView(
-            controller: _pageController,
-            children: imageUrls.map((url) {
-              return Image.network(
-                url,
-                fit: BoxFit.cover,
-              );
-            }).toList(),
-          ),
+  controller: _pageController,
+  children: imageUrls.map((url) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(7.0),
+      child: Image.network(
+        url,
+        fit: BoxFit.cover,
+      ),
+    );
+  }).toList(),
+)
+
         ),
       ),
     ),
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 3),
 
     Padding(
       padding: const EdgeInsets.only(bottom: 55.0),
       child: SizedBox(
         width: 160,
-        height: 200,
+        height: 400,
         child: Card(
           elevation: 4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
           child: SizedBox(
-            height: 210,
+            height: 400,
             width: 470,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -452,7 +462,7 @@ Row(
                 children: [
                   Image.network(
                     'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/aa/f9/05/aaf90564-680f-3246-da81-23cd49204471/cover.jpg/1200x630cw.png',
-                    height: 100,
+                    height: 400,
                     width: 170,
                     fit: BoxFit.cover,
                   ),
@@ -479,16 +489,16 @@ Row(
       ),
     ),
 
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 3),
 
    
   ],
 ),
-// Add another set of cards below the second card
+
 Row(
   children: [
-    Padding(
-      padding: const EdgeInsets.only(left: 15.0), // Add left padding as needed
+   Padding(
+      padding: const EdgeInsets.only(left: 10.0,bottom:200), // Add left padding as needed
       child: Card(
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -498,31 +508,35 @@ Row(
           height: 270,
           width: 180,
           child: PageView(
-            controller: _pageController,
-            children: imageUrls.map((url) {
-              return Image.network(
-                url,
-                fit: BoxFit.cover,
-              );
-            }).toList(),
-          ),
+  controller: _pageController,
+  children: imageUrls.map((url) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(7.0),
+      child: Image.network(
+        url,
+        fit: BoxFit.cover,
+      ),
+    );
+  }).toList(),
+)
+
         ),
       ),
     ),
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 3),
 
     Padding(
       padding: const EdgeInsets.only(bottom: 55.0),
       child: SizedBox(
         width: 160,
-        height: 200,
+        height: 400,
         child: Card(
           elevation: 4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
           child: SizedBox(
-            height: 210,
+            height: 400,
             width: 470,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -531,7 +545,7 @@ Row(
                   Image.network(
                     'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/aa/f9/05/aaf90564-680f-3246-da81-23cd49204471/cover.jpg/1200x630cw.png',
                     height: 100,
-                    width: 170,
+                    width: 440,
                     fit: BoxFit.cover,
                   ),
                   const SizedBox(height: 8),
@@ -557,16 +571,16 @@ Row(
       ),
     ),
 
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 3),
 
    
   ],
 ),
-// Add another set of cards below the second card
+
 Row(
   children: [
     Padding(
-      padding: const EdgeInsets.only(left: 15.0), // Add left padding as needed
+      padding: const EdgeInsets.only(left: 10.0,bottom:200), // Add left padding as needed
       child: Card(
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -576,31 +590,35 @@ Row(
           height: 270,
           width: 180,
           child: PageView(
-            controller: _pageController,
-            children: imageUrls.map((url) {
-              return Image.network(
-                url,
-                fit: BoxFit.cover,
-              );
-            }).toList(),
-          ),
+  controller: _pageController,
+  children: imageUrls.map((url) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(7.0),
+      child: Image.network(
+        url,
+        fit: BoxFit.cover,
+      ),
+    );
+  }).toList(),
+)
+
         ),
       ),
     ),
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 3),
 
     Padding(
       padding: const EdgeInsets.only(bottom: 55.0),
       child: SizedBox(
         width: 160,
-        height: 200,
+        height: 400,
         child: Card(
           elevation: 4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
           child: SizedBox(
-            height: 210,
+            height: 400,
             width: 470,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -608,7 +626,7 @@ Row(
                 children: [
                   Image.network(
                     'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/aa/f9/05/aaf90564-680f-3246-da81-23cd49204471/cover.jpg/1200x630cw.png',
-                    height: 100,
+                    height: 400,
                     width: 170,
                     fit: BoxFit.cover,
                   ),
@@ -635,7 +653,7 @@ Row(
       ),
     ),
 
-    const SizedBox(width: 6), // Adjust the spacing between the cards
+    const SizedBox(width: 3),
 
    
   ],
@@ -649,15 +667,15 @@ Row(
         ),
       ),
       bottomNavigationBar: ConvexAppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.tealAccent,
         elevation: 0,
         style: TabStyle.reactCircle,
         items: const [
           TabItem(icon: Icons.home, title: 'Home'),
-          TabItem(icon: Icons.library_books, title: 'Sell'),
-          TabItem(icon: Icons.hotel, title: 'Tickets'),
+          TabItem(icon: Icons.money, title: 'Sell'),
+          TabItem(icon: Icons.card_travel, title: 'Ticket Swap'),
           TabItem(icon: Icons.person, title: 'Account'),
-          TabItem(icon: Icons.airplane_ticket, title: 'My Events'),
+          TabItem(icon: Icons.event_seat, title: 'My Events'),
         ],
         initialActiveIndex: _selectedIndex,
         onTap: (index) {
